@@ -44,6 +44,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .contenant-formulaire{
+    border: 2px solid #ffffff;
     position: relative;
     left: 25%;
     overflow: hidden;
@@ -225,6 +226,7 @@ button{
     border-radius: 50px;
     border-color: rgba(0, 32, 63, .45);
     transition: 0.2s ease-in;
+    border: 1px solid #ffffff;
 }
 
 .lien{
@@ -235,6 +237,7 @@ button:hover{
     cursor: pointer;
     background-color: rgb(93, 238, 205);
     color: #ffffff;
+    border: 2px solid #ffffff;
 }
 
 .reseaux-sociaux{
@@ -262,4 +265,9 @@ a{
     font-size: 16px;
     margin: 8px 0 16px;
     color: rgb(93, 238, 205);
+}
+
+a:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }

@@ -4,14 +4,29 @@
         <meta charset="UTF-8">
         <title>Portfolio</title>
         <link href="index.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/swup/dist/swup.min.css" />
-        <script src="https://unpkg.com/swup/dist/swup.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
         <link rel="icon" href="image/YG.jpg">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="script.js" defer></script>
     </head>
     <body>
+        <div class="loader">
+            <span class="lettre">C</span>
+            <span class="lettre">H</span>
+            <span class="lettre">A</span>
+            <span class="lettre">R</span>
+            <span class="lettre">G</span>
+            <span class="lettre">E</span>
+            <span class="lettre">M</span>
+            <span class="lettre">E</span>
+            <span class="lettre">N</span>
+            <span class="lettre">T</span>
+        </div>
+
+
+
+
         <div class="vl"></div>
         <div class="vl1"></div>
         <nav class="navbar">
@@ -29,9 +44,6 @@
         <div class="boxaccueil" style="max-width:1300px; padding: 0 150px;">
             <section id="accueil">
                 <div class="contenant-accueil">
-                    <div>
-                        <p class="bjr">Bonjour, je m'appelle</p>
-                    </div>
                     <div>
                         <p class="prenom">Guerda Yacine.</p>
                     </div>
@@ -87,7 +99,7 @@
                 <div class="parcours">
                     <p class="texte-parcours">Mon parcours</p>
                 </div>
-                <div>
+                <div >
                         <p class="texte-accueil">
                             J'ai 18 ans et je suis né à Creil (la ville ou j'ai grandis). Arrivé en seconde générale au lycée Marie Curie à Nogent sur Oise, j'étais très vite intéréssé par l'informatique nottament grâce aux sciences numériques et technologiques.
                             Malheureusement je n'ai pas continué sur ce cursus et j'ai décidé de faire quelque chose de classique c'est pour cela que j'ai choisis les spécialité mathémtiques physiques et svt en première. Cela ne m'interessait pas plus que ça mais j'ai tout de même obtenu mon baccalauréat.
@@ -100,27 +112,14 @@
             </section>
 
         <section id="contact" style="padding-top: 60px;">
+            <p class="statut">Contactez moi</p>
             <div class="contenant-formulaire">
-                <div class="titre">
-                    <h1>Contactez moi</h1>
-                </div>
                 <form action="#" method="post">
                     <input type="text" name="nom" placeholder="Entrer votre nom..." required="">
                     <input type="email" name="email" placeholder="Entrer votre e-mail..." required="">
-                    <input type="text" name="sujet" placeholder="Indiquer le sujet de votre message..." required="">
+                    <input type="text" name="sujet" placeholder="Quel est le sujet?" required="">
                     <textarea name="message" placeholder="Entrer votre message"></textarea>
-                    <button type="submit" style="
-                    width: 192px;
-                    background-color: #0A192F;
-                    color: rgb(93, 238, 205);
-                    border: 1px solid #ffffff;
-                    width: 192px;
-                    height: 50px;
-                    border-radius: 8px;
-                    font-weight: bold;
-                    font-size: 1.2rem;
-                    cursor: pointer;
-                    margin-top: 30px;">Envoyer</button>
+                    <button type="submit" class="animation-bouton">Envoyer</button>
                 </form>
             </div>
         </section>

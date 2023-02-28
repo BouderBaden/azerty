@@ -3,35 +3,45 @@ $port = '3306';
 $host = '127.0.0.1';
 $dbname = 'web';
 $id = 'root';
-$password = '';
+$pass = '';
 $erreurs = [];
 mb_internal_encoding('UTF-8');
 
-try {
-    $bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';port='.$port.';charset=utf8mb4', $id, $password);
-} catch (Exception $ex) {
-    echo 'Connection failed: ' . $ex->getMessage();
-    exit();
+try
+{
+    $bdd = new PDO ('mysql:host='.$host.';dbname='.$dbname, $id, $pass, array (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+}
+catch (Exception $ex)
+{
+    echo ' connection mal ffaite';
 }
 
-if (!empty($_POST)) {
+    if (empty($_POST) === false)
+    {
+        if (empty($erreurs))
+        {
+            try 
+            { 
+            $password = password_hash($_POST['password'],PASSWORD_ARGON2I);
 
-    if (empty($erreurs)) {
-        try {
-            $insertion = $bdd->prepare('INSERT INTO login (Name, Firstname, Email, Password, Date) VALUES (:name, :firstname, :email, :passwordd, :datetime)');
-            $insertion->bindParam(':name', $_POST['nom']);
-            $insertion->bindParam(':firstname', $_POST['prenom']);
-            $insertion->bindParam(':email', $_POST['email']);
-            $insertion->bindParam(':passwordd', $_POST['password']);
-            $insertion->bindParam(':datetime', $_POST['date_naissance']);
+            
+            $insertion = $bdd->prepare('INSERT INTO login (Name, Firstname, Email, Password, Date, Sexe) VALUES (:name, :firstname, :emaill, :passwordd, :datetime, :sexe)');
+            $insertion -> bindParam(':name', $_POST['nom']);
+            $insertion -> bindParam(':firstname', $_POST['prenom']);
+            $insertion -> bindParam(':emaill', $_POST['email']);
+            $insertion -> bindParam(':passwordd', $password);
+            $insertion -> bindParam(':datetime', $_POST['date_naissance']);
 
-            $insertion->execute();
-            echo 'Félicitations, vous avez créé un personnage ! Vous devez maintenant monter niveau 200.';
-        } catch (Exception $exception) {
-            echo 'Error during insertion: ' . $exception->getMessage();
+            $insertion -> execute();
+        
+            }
+            catch  (Exception $exception)
+            {
+                echo 'NULLLLLLLLLLLL';
+            }
         }
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,17 +81,13 @@ if (!empty($_POST)) {
                     
                     <select name="genre" required>
                       <option value="">Choisissez votre genre</option>
-                      <option value="homme">Homme</option>
-                      <option value="femme">Femme</option>
-                      <option value="autre">Autre</option>
+                      <option value="homme" for="homme">Homme</option>
+                      <option value="femme" for="femme">Femme</option>
+                      <option value="autre" for="autre">Autre</option>
                     </select>
-                    
+                    <input name="pefect" type="checkbox"> Coche ici si ta des couilles
                     <button type="submit" >S'inscrire</button>
-                    
-                  </form>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </body>
